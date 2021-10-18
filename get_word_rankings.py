@@ -1,4 +1,10 @@
 def get_rankings(word_groups, country_code, area_code, phone_number, number_map):
+  """ Takes in word groups and returns a list of all vanity numbers ranked by longest word.
+      Vanity numbers are returned in the form: +1-area_code-vanity_number
+      If there are less than five vanity numbers, random letters will be assigned
+      to make up the difference.
+
+  """
 
   word_rankings = []
 

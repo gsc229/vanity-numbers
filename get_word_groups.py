@@ -1,5 +1,13 @@
 def get_word_groups(seven_digit_phone_number, number_map):
-  # The keys to the word groups are the indicies of which the word starts
+  """ Checks a seven digit phone number against a dictionary (number_map) of number keys
+      and word-list values. Words can be made from either the entire phone number
+      or parts of the phone number.
+
+      There are five vanity number groups/dictionaries ordere high to low:
+      seven letter words, six letter words, five letter words and three letter words.
+      The keys in the dictionaries are also indices which represent
+      at which index of the seven digit phone number the word begins.
+  """
   word_groups = []
   three_letter_words = {}
   four_letter_words = {}
