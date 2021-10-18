@@ -1,10 +1,11 @@
 def get_word_groups(seven_digit_phone_number, number_map):
-  """ Checks a seven digit phone number against a dictionary (number_map) of number keys
-      and word-list values. Words can be made from either the entire phone number
+  """ Checks a seven digit phone number against a dictionary (number_map) of number-keys
+      and word-list-values. Words can be made from either the entire phone number
       or parts of the phone number.
 
-      There are five vanity number groups/dictionaries ordered from high to low:
-      seven letter words, six letter words, five letter words, three letter words and two letter words.
+      There are six vanity number groups/dictionaries ordered from high to low:
+      seven letter words, six letter words, five letter words,
+      four letter words, three letter words and two letter words.
       The keys in the dictionaries are also indices which represent
       at which index of the seven digit phone number the word begins.
   """
