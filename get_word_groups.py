@@ -4,11 +4,13 @@ def get_word_groups(seven_digit_phone_number, number_map):
       or parts of the phone number.
 
       There are five vanity number groups/dictionaries ordered from high to low:
-      seven letter words, six letter words, five letter words and three letter words.
+      seven letter words, six letter words, five letter words, three letter words and two letter words.
       The keys in the dictionaries are also indices which represent
       at which index of the seven digit phone number the word begins.
   """
   word_groups = []
+
+  two_letter_words = {}
   three_letter_words = {}
   four_letter_words = {}
   five_letter_words = {}
@@ -22,6 +24,12 @@ def get_word_groups(seven_digit_phone_number, number_map):
   for i in range(0, 7):
 
     # Find any three letter words
+    if i <= 5:
+      key = seven_digit_phone_number[i:i+2]
+
+      if key in number_map:
+        two_letter_words[i] = number_map[key]
+
     if i <= 4:
       key = seven_digit_phone_number[i:i+3]
 
@@ -48,7 +56,8 @@ def get_word_groups(seven_digit_phone_number, number_map):
     six_letter_words,
     five_letter_words,
     four_letter_words,
+    three_letter_words,
     three_letter_words
   ])
-  print(word_groups)
+  
   return word_groups

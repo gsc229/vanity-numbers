@@ -20,26 +20,27 @@ def get_rankings(word_groups, country_code, area_code, phone_number, number_map)
 
           word_rankings.append(vanity_number)
 
-  # next_number = ""
-  # level = 0
+  # Handle  cases where there aren't enough matches
+  next_number = ""
+  level = 0
 
-  # while len(word_rankings) < 5:
-  #   for num in phone_number:
-  #     if num == "1":
-  #       next_number += "1"
-  #     else:
-  #       if num in number_map:
-  #         if level < len(number_map[num]):
-  #           next_number += number_map[num][level]
-  #         else:
-  #           next_number += num
+  while len(word_rankings) < 5:
+    for num in phone_number:
+      if num == "1":
+        next_number += "1"
+      else:
+        if num in number_map:
+          if level < len(number_map[num]):
+            next_number += number_map[num][level]
+          else:
+            next_number += num # Fail safe. Ensures if no letters, the original number is returned. 
 
-  #     if level >= 4:
-  #       level = 0
-  #     else: level += 1
+      if level >= 4:
+        level = 0
+      else: level += 1
 
-  #   word_rankings.append(next_number)
-  #   next_number = ""
+    word_rankings.append(next_number)
+    next_number = ""
 
   return [f"+{country_code}-{area_code}-{''.join(word)}" for word in word_rankings]
 
