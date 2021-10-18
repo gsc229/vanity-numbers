@@ -22,7 +22,7 @@ def validate_phone_number(phone_number):
     return { "valid": False }
 
   return {
-    "vaild": True,
+    "valid": True,
     "country_code": sanitized_number[0],
     "area_code": sanitized_number[1:4],
     "seven_digit_phone_number": sanitized_number[-7:]

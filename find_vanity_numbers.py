@@ -10,7 +10,7 @@ def find_words(phone_number):
   """
   validated_phone_number = validate_phone_number(phone_number)
 
-  if validated_phone_number["vaild"] is not True:
+  if validated_phone_number["valid"] is not True:
     return "Error: Invalid Phone Number"
 
   last_seven_digits = validated_phone_number["seven_digit_phone_number"]
