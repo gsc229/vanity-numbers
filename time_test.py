@@ -1,5 +1,12 @@
+import os
 import time
 from find_vanity_numbers import find_words
+
+TEST_NUMBER_1 = os.getenv("TEST_NUMBER_1")
+TEST_NUMBER_2 = os.getenv("TEST_NUMBER_2")
+TEST_NUMBER_3 = os.getenv("TEST_NUMBER_3")
+TEST_NUMBER_4 = os.getenv("TEST_NUMBER_4")
+TEST_NUMBER_5 = os.getenv("TEST_NUMBER_5")
 
 def time_test(test_numbers):
   print(f"TEST NUMBERS: {test_numbers}")
@@ -17,8 +24,13 @@ def time_test(test_numbers):
 
   return total_times
 
-# "+14199374482" - Has seven letter word
-# "+14193204052" - Has limited word combinations
-test_phone_numbers = ["+14199374482", "+14193204052", "14193673981"]
+
+test_phone_numbers = [
+  TEST_NUMBER_1,
+  TEST_NUMBER_2,
+  TEST_NUMBER_3,
+  TEST_NUMBER_4,
+  TEST_NUMBER_5
+]
 
 time_test(test_phone_numbers)

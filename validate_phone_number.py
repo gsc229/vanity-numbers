@@ -5,9 +5,14 @@ def validate_phone_number(phone_number):
       1. The phone number is a string
       2. Checks for and removes any non-numerical characters.
       3. The phone number has 11 digits
-      4. The area code of the phone number is 1
-      Returns a dictionary with, valid: boolean, country_code: string (1), area_code: string
-      and seven_digit_phone_number: string.
+      4. The country code of the phone number is 1
+      Returns a dictionary:
+       {
+        valid: boolean, 
+        country_code: string (1), 
+        area_code: string, 
+        seven_digit_phone_number: string
+      }
   """
   if isinstance(phone_number, str) is False:
     return { "valid": False }
