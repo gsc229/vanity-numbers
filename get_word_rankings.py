@@ -1,7 +1,7 @@
 def get_rankings(word_groups, country_code, area_code, phone_number, number_map):
   """ Takes in word groups and returns a list of all vanity numbers ranked by longest word.
       Vanity numbers are returned in the form: +1-area_code-vanity_number
-      If there are less than five vanity numbers, random letters will be assigned
+      If there are less than five vanity numbers, letters will be assigned
       to make up the difference.
 
   """
@@ -14,34 +14,36 @@ def get_rankings(word_groups, country_code, area_code, phone_number, number_map)
         for word in word_list:
           vanity_number = splice_words_in_number(
             index,
-            country_code,
-            area_code,
             phone_number,
             word
           ).upper()
 
           word_rankings.append(vanity_number)
 
-  next_number = ""
-  level = 0
+  # next_number = ""
+  # level = 0
 
-  while len(word_rankings) < 5:
-    for num in phone_number:
-      if num == "1":
-        next_number += "1"
-      else:
-        if num in number_map:
-          if level < len(number_map[num]):
-            next_number += number_map[num][level]
-          else:
-            next_number += num
-      level += 1
-    word_rankings.append(next_number)
-    next_number = ""
+  # while len(word_rankings) < 5:
+  #   for num in phone_number:
+  #     if num == "1":
+  #       next_number += "1"
+  #     else:
+  #       if num in number_map:
+  #         if level < len(number_map[num]):
+  #           next_number += number_map[num][level]
+  #         else:
+  #           next_number += num
 
-  return word_rankings
+  #     if level >= 4:
+  #       level = 0
+  #     else: level += 1
 
-def splice_words_in_number(start_index, country_code, area_code, phone_number, word):
+  #   word_rankings.append(next_number)
+  #   next_number = ""
+
+  return [f"+{country_code}-{area_code}-{''.join(word)}" for word in word_rankings]
+
+def splice_words_in_number(start_index, phone_number, word):
   phone_split = list(phone_number)
   # print(phone_split)
 
@@ -49,4 +51,4 @@ def splice_words_in_number(start_index, country_code, area_code, phone_number, w
     # print(i)
     phone_split[i] = word[i - start_index]
 
-  return f"+{country_code}-{area_code}-{''.join(phone_split)}"
+  return "".join(phone_split)

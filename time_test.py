@@ -15,6 +15,6 @@ def time_test(test_numbers):
 
 # "+14199374482" - Has seven letter word
 # "+14193204052" - Has limited word combinations
-test_phon_numbers = ["+14199374482", "+14193204052"]
+test_phon_numbers = ["+14199374482", "+14193204052", "14193673981"]
 
 time_test(test_phon_numbers)
