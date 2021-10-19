@@ -1,7 +1,4 @@
-from validate_phone_number import validate_phone_number
-from get_number_map import get_number_map
-from get_word_groups import get_word_groups
-from get_word_rankings import get_rankings
+from . import validate_phone_number, get_number_map, get_word_groups, get_word_rankings
 
 def find_words(phone_number):
   """ Checks a seven digit phone number against a dictionary of number keys and word-list values.
@@ -21,6 +18,6 @@ def find_words(phone_number):
 
   word_groups = get_word_groups(last_seven_digits, number_map)
 
-  word_rankings = get_rankings(word_groups, country_code, area_code, last_seven_digits, number_map)
+  word_rankings = get_word_rankings(word_groups, country_code, area_code, last_seven_digits, number_map)
 
   return word_rankings[0:5]

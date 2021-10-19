@@ -1,8 +1,11 @@
 import boto3
-from find_vanity_numbers import find_words
-from validate_phone_number import validate_phone_number
-from save_vanity_numbers import save_vanity_numbers
-from get_response_message import get_response_message
+from vanitynumbers import (
+  validate_phone_number,
+  save_vanity_numbers,
+  get_response_message,
+  find_words
+)
+
 
 def lambda_handler(event, context):
   # Get the service resource.

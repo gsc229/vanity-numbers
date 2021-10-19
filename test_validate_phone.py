@@ -1,5 +1,5 @@
 import unittest
-from validate_phone_number import validate_phone_number
+from helpers import validate_phone_number
 
 class TestValidateNumber(unittest.TestCase):
   def test_non_number_str(self):
