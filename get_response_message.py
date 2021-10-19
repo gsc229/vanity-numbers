@@ -8,10 +8,7 @@ def get_response_message(vanity_numbers_list):
     for i, vanity_number in enumerate(vanity_numbers_list)
   ]
 
-  print(spaced_numbers)
-  print(message + "".join(spaced_numbers))
-
-  return message
+  return message + "".join(spaced_numbers)
 
 def insert_spaces(vanity_number=str):
   spaced_number = ""
@@ -28,5 +25,3 @@ def insert_spaces(vanity_number=str):
 
 
   return spaced_number
-test = ['+1-419-DORK132', '+1-419-FORK132', '+1-419-FORL132', '+1-419-DOP5132', '+1-419-DOR5132']
-get_response_message(test)
