@@ -1,12 +1,12 @@
 def get_response_message(vanity_numbers_list):
 
-  message = "Your top five vanity numbers are "
+  message = "Your vanity numbers are "
 
-  spaced_numbers = [insert_spaces(vanity_number) for vanity_number in vanity_numbers_list]
-
-  for i, vanity_number in enumerate(spaced_numbers):
-    if i < len(spaced_numbers) + 1:
-      spaced_numbers[i] = f"{vanity_number} next number"
+  spaced_numbers = [
+    insert_spaces(vanity_number) + " next number"
+    if i < len(vanity_numbers_list) - 1 else insert_spaces(vanity_number)
+    for i, vanity_number in enumerate(vanity_numbers_list)
+  ]
 
   print(spaced_numbers)
   print(message + "".join(spaced_numbers))
@@ -16,13 +16,15 @@ def get_response_message(vanity_numbers_list):
 def insert_spaces(vanity_number=str):
   spaced_number = ""
 
-  for i, char in enumerate(vanity_number):
-    if char.isalpha() and vanity_number[i+1].isnumeric():
-      spaced_number += f"{char} "
+  for char in vanity_number:
+    if char.isalpha():
+      spaced_number += f"{char}"
+    elif char == " ":
+      spaced_number += ""
     elif not char.isalpha() and not char.isnumeric():
       spaced_number += " "
     else:
-      spaced_number += char
+      spaced_number += f" {char} "
 
 
   return spaced_number
