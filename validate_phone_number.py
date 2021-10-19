@@ -8,10 +8,11 @@ def validate_phone_number(phone_number):
       4. The country code of the phone number is 1
       Returns a dictionary:
        {
-        valid: boolean, 
-        country_code: string (1), 
-        area_code: string, 
-        seven_digit_phone_number: string
+        valid: boolean,
+        country_code: string, # 1
+        area_code: string,
+        seven_digit_phone_number: string,
+        full_number: string
       }
   """
   if isinstance(phone_number, str) is False:
@@ -28,7 +29,8 @@ def validate_phone_number(phone_number):
 
   return {
     "valid": True,
-    "country_code": sanitized_number[0],
+    "country_code": sanitized_number[0], # 1
     "area_code": sanitized_number[1:4],
-    "seven_digit_phone_number": sanitized_number[-7:]
+    "seven_digit_phone_number": sanitized_number[-7:],
+    "full_number": sanitized_number
   }

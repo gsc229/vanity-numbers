@@ -30,7 +30,7 @@ test_phone_numbers = [
   TEST_NUMBER_2,
   TEST_NUMBER_3,
   TEST_NUMBER_4,
-  TEST_NUMBER_5
+  TEST_NUMBER_5,
 ]
 
 time_test(test_phone_numbers)
