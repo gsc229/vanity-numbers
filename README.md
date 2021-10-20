@@ -6,12 +6,12 @@
 - [CloudFormation Instructions](CLOUDFORMATION.md)
 - [Contact Flow Instructions](CONTACTFLOW.md)
 - [Managing The Project (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
-- [Blockers](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
+- [Blockers (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
 
 ## Overview:
 
 ### Try it out:
-Call: 1 (800) 526 - 6886
+Call: +1-800-52MOTTO | 1 (800) 526 - 6886
 
 #### Tech Stack
 - AWS Lambda

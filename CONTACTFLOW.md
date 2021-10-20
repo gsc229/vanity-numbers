@@ -1,8 +1,8 @@
 #### Other Pages:
 - [Overview](README.md)
-- [Contact Flow Instructions](CONTACTFLOW.md)
+- [Running the Python Application Locally](RUNPYTHONAPP.md)
 - [Managing The Project (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
-- [Blockers](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
+- [Blockers (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
 
 
 ## Contact Flow Instructions:
