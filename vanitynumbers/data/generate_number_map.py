@@ -2,9 +2,9 @@ import json
 
 def generate_number_map():
   """ Loops through every word in the word list and
-      converts letters to phone dial pad digits. The digits are 
-      used as dictionary keys and the value is a list of all words with the same 
-      digit conversions. In this way we can have O(1) access to meaningful, 
+      converts letters to phone dial pad digits. The digits are
+      used as dictionary keys and the value is a list of all words with the same
+      digit conversions. In this way we can have O(1) access to meaningful,
       common words associated with any or all number sequences in a phone number.
    """
 

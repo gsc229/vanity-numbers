@@ -1,6 +1,6 @@
 import os
 import time
-from vanitynumbers import find_words
+from vanitynumbers.find_vanity_numbers import find_words
 
 TEST_NUMBER_1 = os.getenv("TEST_NUMBER_1")
 TEST_NUMBER_2 = os.getenv("TEST_NUMBER_2")

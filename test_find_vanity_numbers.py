@@ -1,5 +1,5 @@
 import unittest
-from time_test import test_phone_numbers, time_test
+from time_test import time_test, test_phone_numbers
 
 class TestFindVainityNumbers(unittest.TestCase):
   def test_less_fifty_ms(self):
