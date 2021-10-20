@@ -3,7 +3,7 @@
 - [CloudFormation Instructions](CLOUDFORMATION.md)
 - [Contact Flow Instructions](CONTACTFLOW.md)
 - [Managing The Project (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
-- [Blockers](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
+- [Blockers (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
 
 ### On this Page:
 
@@ -80,10 +80,17 @@ I used the following query:
 querystring = {"letterPattern":"^[a-zA-Z]+$", "lettersmin":"2", "lettersMax":"7", "limit":"56000"}
 ```
 
-A list of words with only alpha characters that were between 2 and 7 letters long yeilded roughly 56,000 words. I wrote a funcion, generate_number_map.py, that encoded each word into their dial-pad digit representations and saved them in a python dictionary, number_map.py. The number-strings (varying in lenght of 2-7 numbers) served as the keys and a list of all the words that could be made from the same number combination served as the value. Having the number map saved in memory as a dicitonary gave me quick access to the values (O(1)).
+A list of words with only alpha characters that were between 2 and 7 letters long yeilded roughly 56,000 words. I wrote a funcion, generate_number_map.py, that encoded each word into their dial-pad digit representations and saved them in a python dictionary, number_map.py. The number-strings (varying in lenght of 2-7 numbers) served as the keys and a list of all the words that could be made from the same number sequence served as the value. Having the number map saved in memory as a dicitonary gave me quick access to the values (O(1)).
+
+```
+"7237842": ["SCEPTIC"]
+```
 
 ```
 "22766": ["AARON", "ACRON", "BARON", "BASON", "CAPON", "CAROM"],
+```
+```
+"224": ["AAH", "BAG", "BAH", "BAI", "BCH", "CBI"]
 ```
 In find_vanity_numbers.py, I broke the phone number down to number-strings and found matches to words between 2 and 7 letters long. I ranked all the vanity number results by longest word (they were already ordered alphabetically) and returned the top five. 
 
