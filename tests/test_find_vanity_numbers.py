@@ -1,6 +1,6 @@
 import unittest
 # from find_vanity_numbers import find_words
-from time_test import time_test, test_phone_numbers
+from .time_test import time_test, test_phone_numbers
 
 
 class TestFindVainityNumbers(unittest.TestCase):
