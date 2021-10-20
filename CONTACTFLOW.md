@@ -1,6 +1,7 @@
 #### Other Pages:
 - [Overview](README.md)
 - [Running the Python Application Locally](RUNPYTHONAPP.md)
+- [CloudFormation Instructions](CLOUDFORMATION.md)
 - [Managing The Project (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
 - [Blockers (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
 
