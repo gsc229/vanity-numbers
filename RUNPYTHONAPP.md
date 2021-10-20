@@ -33,11 +33,11 @@ When shell is running, from the same terminal run:
 $ pipenv install
 ```
  This will install all the dependencies in the Pipfile
- You can now use all the normal python commands from inside the pipenv shell.
+ You can now use all the normal python commands from inside the pipenv shell (The only depencies needed are the one's to run data generators, which isn't need because number_map has already been created.)
 
 ## Setting Environemt Variables
 
-Since I was testing real phone numbers, I didn't want to push any numbers to GitHub. I made the following environment variables:
+Since my friends and family probably wouldn't appreciate me pushing their phone numbers to GitHub, I made the following environment variables:
 ```
 TEST_NUMBER_1
 TEST_NUMBER_2
@@ -46,8 +46,10 @@ TEST_NUMBER_4
 TEST_NUMBER_5
 ```
 You can set those same variables in a .env file in the root. 
-If you aren't keen on setting up Pipenv, you can create your own variables in the code.
-Valid phone numbers take the form 1-555-555-5555, +15555555555. As long as they have 11 numbers total and 1 as the country code they will pass validation.
+
+***If you want to skip setting up Pipenv***, you can hard code your own phone number variables in the test_phone_numbers list in time_test.py.
+
+Valid phone number strings take the form 1-555-555-5555, +15555555555. As long as they have 11 numbers total and 1 as the country code they will pass validation.
 
 ## Testing The Application
 
