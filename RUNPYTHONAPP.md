@@ -92,6 +92,6 @@ A list of words with only alpha characters that were between 2 and 7 letters lon
 ```
 "224": ["AAH", "BAG", "BAH", "BAI", "BCH", "CBI"]
 ```
-In find_vanity_numbers.py, I broke the phone number down to number-strings and found matches to words between 2 and 7 letters long. I ranked all the vanity number results by longest word (they were already ordered alphabetically) and returned the top five. 
+In find_vanity_numbers.py, the phone number is broken down into number-strings and matches are found for words between 2 and 7 letters long. All the vanity number results are ranked by longest word and the top five are returned. In edge cases where there aren't enough words, random letters per each digit are assigned. In rare cases where numbers contain many 1s and 0s, not representing any letters, the original phone number is returned.
 
 
