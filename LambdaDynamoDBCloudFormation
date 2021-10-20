@@ -1,0 +1,225 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "909d74ce-e744-4740-be6e-3cad896f8f7e": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 540,
+                    "y": 160
+                },
+                "z": 0,
+                "embeds": [],
+                "dependson": [
+                    "61cc7d9d-f2aa-4585-a2f6-1e386f41fe14",
+                    "0074abcc-92d6-4dd7-a50e-eaa54ad23675"
+                ]
+            },
+            "0074abcc-92d6-4dd7-a50e-eaa54ad23675": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 370,
+                    "y": 160
+                },
+                "z": 0,
+                "embeds": [],
+                "dependson": [
+                    "4816ac79-b0c9-4334-96c2-225176fdba80"
+                ]
+            },
+            "4816ac79-b0c9-4334-96c2-225176fdba80": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": 160
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "a53b3be2-4ef2-4cc4-9263-6ac3033e6803": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": 40
+                },
+                "z": 0,
+                "embeds": [],
+                "dependson": [
+                    "4816ac79-b0c9-4334-96c2-225176fdba80"
+                ]
+            },
+            "61cc7d9d-f2aa-4585-a2f6-1e386f41fe14": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 460,
+                    "y": 40
+                },
+                "z": 0,
+                "embeds": [],
+                "dependson": [
+                    "0074abcc-92d6-4dd7-a50e-eaa54ad23675"
+                ]
+            }
+        }
+    },
+    "Resources": {
+        "LambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "ConnectGetVanityNumbers",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "LambdaRole",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "S3Bucket": "vanity-numbers-project",
+                    "S3Key": "vanity-numbers-master.zip"
+                },
+                "Handler": "lambda_function.lambda_handler",
+                "Runtime": "python3.8"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0074abcc-92d6-4dd7-a50e-eaa54ad23675"
+                }
+            },
+            "DependsOn": [
+                "DynamoDB",
+                "LambdaRole"
+            ]
+        },
+        "DynamoDB": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "phone_number",
+                        "AttributeType": "S"
+                    }
+                ],
+                "BillingMode": "PAY_PER_REQUEST",
+                "TableName": "vanity_numbers_test",
+                "KeySchema": [
+                    {
+                        "AttributeName": "phone_number",
+                        "KeyType": "HASH"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "4816ac79-b0c9-4334-96c2-225176fdba80"
+                }
+            }
+        },
+        "LambdaRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "Description": "Role for lambda function to assume to read/write to DynamoDB",
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        },
+                        "PolicyName": "AWSLambdaBasicExecutionRoleForConnect"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:PutItem",
+                                        "dynamodb:DeleteItem",
+                                        "dynamodb:GetItem",
+                                        "dynamodb:Scan",
+                                        "dynamodb:Query",
+                                        "dynamodb:UpdateItem"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        },
+                        "PolicyName": "DynamoDBReadWriteAccessForConnect"
+                    }
+                ],
+                "RoleName": "LambdaDynamoDBConnectRole"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a53b3be2-4ef2-4cc4-9263-6ac3033e6803"
+                }
+            },
+            "DependsOn": [
+                "DynamoDB"
+            ]
+        },
+        "LambdaPermission": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "LambdaFunction",
+                        "Arn"
+                    ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "connect.amazonaws.com"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "61cc7d9d-f2aa-4585-a2f6-1e386f41fe14"
+                }
+            },
+            "DependsOn": [
+                "LambdaFunction"
+            ]
+        }
+    }
+}
