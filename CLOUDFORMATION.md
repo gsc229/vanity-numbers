@@ -3,7 +3,7 @@
 - [Running the Python Application Locally](RUNPYTHONAPP.md)
 - [Contact Flow Instructions](CONTACTFLOW.md)
 - [Managing The Project (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
-- [Blockers](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
+- [Blockers (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
 
 ### On this page:
 [Problems I ran into](#problems-i-ran-into)

@@ -10,6 +10,9 @@
 
 ## Overview:
 
+### Try it out:
+Call: 1 (800) 526 - 6886
+
 #### Tech Stack
 - AWS Lambda
 - AWS DynamoDB
