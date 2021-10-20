@@ -32,8 +32,8 @@ When shell is running, from the same terminal run:
 ```
 $ pipenv install
 ```
- This will install all the dependencies in the Pipfile
- You can now use all the normal python commands from inside the pipenv shell (The only depencies needed are the one's to run data generators, which isn't need because number_map has already been created.)
+ This will install all the dependencies in the ``Pipfile``
+ You can now use all the normal python commands from inside the pipenv shell (The only depencies needed are the one's to run data generators, which isn't need because ```number_map``` has already been created.)
 
 ## Setting Environemt Variables
 
@@ -47,7 +47,7 @@ TEST_NUMBER_5
 ```
 You can set those same variables in a .env file in the root. 
 
-***If you want to skip setting up Pipenv***, you can hard code your own phone number variables in the test_phone_numbers list in time_test.py.
+***If you want to skip setting up Pipenv***, you can hard code your own phone number variables in the ```test_phone_numbers``` list in ```time_test.py```.
 
 Valid phone number strings take the form 1-555-555-5555, +15555555555. As long as they have 11 numbers total and 1 as the country code they will pass validation.
 
@@ -72,7 +72,7 @@ $ python test_word_groups.py
 
 ## Approach
 
-Rather than writing an algorithm that randomly generates letters associated with digits on a phone dial pad, I decided to use a list of common words. I wrote a function, fetch_word_list.py (vanitynumbers/data) which queries [Words API](https://www.wordsapi.com/#). 
+Rather than writing an algorithm that randomly generates letters associated with digits on a phone dial pad, I decided to use a list of common words. I wrote a function, ```fetch_word_list.py``` in ```vanitynumbers/data``` which queries [Words API](https://www.wordsapi.com/#). 
 
 I used the following query:
 
@@ -80,7 +80,7 @@ I used the following query:
 querystring = {"letterPattern":"^[a-zA-Z]+$", "lettersmin":"2", "lettersMax":"7", "limit":"56000"}
 ```
 
-A list of words with only alpha characters that were between 2 and 7 letters long yeilded roughly 56,000 words. I wrote a funcion, generate_number_map.py, that encoded each word into their dial-pad digit representations and saved them in a python dictionary, number_map.py. The number-strings (varying in lenght of 2-7 numbers) served as the keys and a list of all the words that could be made from the same number sequence served as the value. Having the number map saved in memory as a dicitonary gave me quick access to the values (O(1)).
+A list of words with only alpha characters that were between 2 and 7 letters long yeilded roughly 56,000 words. I wrote a funcion, ```generate_number_map.py```, that encoded each word into their dial-pad digit representations and saved them in a python dictionary, ```number_map.py```. The number-strings (varying in lenght of 2-7 numbers) served as the keys and a list of all the words that could be made from the same number sequence served as the value. Having the number map saved in memory as a dicitonary gave me quick access to the values (O(1)).
 
 ```
 "7237842": ["SCEPTIC"]
@@ -92,6 +92,6 @@ A list of words with only alpha characters that were between 2 and 7 letters lon
 ```
 "224": ["AAH", "BAG", "BAH", "BAI", "BCH", "CBI"]
 ```
-In find_vanity_numbers.py, the phone number is broken down into number-strings and matches are found for words between 2 and 7 letters long. All the vanity number results are ranked by longest word and the top five are returned. In edge cases where there aren't enough words, random letters per each digit are assigned. In rare cases where numbers contain many 1s and 0s, not representing any letters, the original phone number is returned.
+In ```find_vanity_numbers.py```, the phone number is broken down into number-strings and matches are found for words between 2 and 7 letters long. All the vanity number results are ranked by longest word and the top five are returned. In edge cases where there aren't enough words, random letters per each digit are assigned. In rare cases where numbers contain many 1s and 0s, not representing any letters, the original phone number is returned.
 
 
