@@ -14,7 +14,6 @@ def lambda_handler(event, context):
   table = ddb.Table('vanity_numbers')
   # Get customer phone_number from AWS Connect contact flow event
   phone_number = event["Details"]["ContactData"]["CustomerEndpoint"]["Address"]
-  print(phone_number)
 
   number_validation = validate_phone_number(phone_number)
 
@@ -33,14 +32,12 @@ def lambda_handler(event, context):
 
   if "Item" in response:
     item = response["Item"]
-    print(item)
+
     return { "ResponseMessage": get_response_message(item["vanity_numbers"]) }
 
   vanity_numbers = find_words(validated_phone_number)
-  print("VANITY NUMBERS: ", vanity_numbers)
 
   response = save_vanity_numbers(validated_phone_number, vanity_numbers)
-  print(f"SAVE RESPONSE {response}")
 
   if response["HTTPStatusCode"] < 200 or response["HTTPStatusCode"] > 299:
     return { "ResponseMessage": "Sorry, we can process your request at this time." }
