@@ -60,5 +60,5 @@ def get_word_groups(seven_digit_phone_number, number_map):
     three_letter_words,
     three_letter_words
   ])
-  
+
   return word_groups

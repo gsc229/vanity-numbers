@@ -1,6 +1,5 @@
 import unittest
-from get_word_groups import get_word_groups
-from get_number_map import get_number_map
+from vanitynumbers import get_word_groups, get_number_map
 
 number_map = get_number_map()
 

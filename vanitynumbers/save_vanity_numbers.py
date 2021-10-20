@@ -12,4 +12,5 @@ def save_vanity_numbers(phone_number, vanity_numbers_list, dynamodb=None):
       'vanity_numbers': vanity_numbers_list
     },
   )
+
   return response
