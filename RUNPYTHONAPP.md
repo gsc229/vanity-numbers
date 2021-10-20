@@ -1,5 +1,5 @@
 #### Other Pages:
-- [Overview](#overview)
+- [Overview](README.md)
 - [CloudFormation Instructions](CLOUDFORMATION.md)
 - [Contact Flow Instructions](CONTACTFLOW.md)
 - [Managing The Project (Trello Board)](https://trello.com/b/MtaGkEdG/voicefoundry-code-challenge)
@@ -7,16 +7,16 @@
 
 ### On this Page:
 
-- [Pipenv]()
-- [Environment]()
-- [Running Tests]()
+- [Pipenv](#pipenv-environment-manager)
+- [Environment](#setting-environemt-variables)
+- [Running Tests](#testing-the-application)
 - [Approach](#approach)
 
 
 
 ## Running the Python Application Locally
 #### Pipenv Environment Manager
-**<span style="font-size:.8rem">To skip this step see:</span>**  [setting environment variables](#setting-environment-variables)
+**<span style="font-size:.8rem">To skip this step see:</span>**    [setting environment variables](#setting-environemt-variables)
 
 [Pipenv Documentation](https://pipenv.pypa.io/en/latest/install/)
 You can use pip to install Pipenv
@@ -34,6 +34,7 @@ $ pipenv install
 ```
  This will install all the dependencies in the Pipfile
  You can now use all the normal python commands from inside the pipenv shell.
+
 ## Setting Environemt Variables
 
 Since I was testing real phone numbers, I didn't want to push any numbers to GitHub. I made the following environment variables:
@@ -46,7 +47,7 @@ TEST_NUMBER_5
 ```
 You can set those same variables in a .env file in the root. 
 If you aren't keen on setting up Pipenv, you can create your own variables in the code.
-Valid phone numbers take the form 1-555-555-5555, +15555555555. As long as they have 11 numbers and 1 as the country code they will pass validation.
+Valid phone numbers take the form 1-555-555-5555, +15555555555. As long as they have 11 numbers total and 1 as the country code they will pass validation.
 
 ## Testing The Application
 
