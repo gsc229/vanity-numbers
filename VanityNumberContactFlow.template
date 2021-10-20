@@ -1,0 +1,408 @@
+{
+  "modules": [
+    {
+      "id": "a1a88150-cc73-40c8-aa2c-62064b397f55",
+      "type": "SetLoggingBehavior",
+      "branches": [
+        {
+          "condition": "Success",
+          "transition": "c16a0e3f-84c9-472f-9972-c8d4116816ad"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "LoggingBehavior",
+          "value": "Enable"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 165,
+          "y": 21
+        }
+      }
+    },
+    {
+      "id": "c16a0e3f-84c9-472f-9972-c8d4116816ad",
+      "type": "SetRecordingBehavior",
+      "branches": [
+        {
+          "condition": "Success",
+          "transition": "f81a0ab3-d873-40d1-b64b-23e98883c28c"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "RecordingBehaviorOption",
+          "value": "Enable"
+        },
+        {
+          "name": "RecordingParticipantOption",
+          "value": "Both"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 396,
+          "y": 18
+        }
+      }
+    },
+    {
+      "id": "f81a0ab3-d873-40d1-b64b-23e98883c28c",
+      "type": "SetVoice",
+      "branches": [
+        {
+          "condition": "Success",
+          "transition": "8133fd8e-2797-4c49-b3d3-f31e1be3083f"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "GlobalVoice",
+          "value": "Matthew"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 622,
+          "y": 15
+        },
+        "overrideConsoleVoice": false,
+        "defaultVoice": "Conversational"
+      }
+    },
+    {
+      "id": "8133fd8e-2797-4c49-b3d3-f31e1be3083f",
+      "type": "PlayPrompt",
+      "branches": [
+        {
+          "condition": "Success",
+          "transition": "b33a31c9-db54-4d33-8a97-89fdfc3dd56b"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Text",
+          "value": "Thanks for using Vanity Number Generator.",
+          "namespace": null
+        },
+        {
+          "name": "TextToSpeechType",
+          "value": "text"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 841,
+          "y": 16
+        },
+        "useDynamic": false
+      }
+    },
+    {
+      "id": "f2a221d2-091e-40ec-ac68-9da5215212d9",
+      "type": "PlayPrompt",
+      "branches": [
+        {
+          "condition": "Success",
+          "transition": "fa3c1cb5-6b9f-4abb-97c2-82320d2cbcec"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Text",
+          "value": "Sorry, please try again.",
+          "namespace": null
+        },
+        {
+          "name": "TextToSpeechType",
+          "value": "text"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 305,
+          "y": 198
+        },
+        "useDynamic": false
+      }
+    },
+    {
+      "id": "ba155e0d-1fef-40c7-ab3b-a1a0120b72c2",
+      "type": "Disconnect",
+      "branches": [],
+      "parameters": [],
+      "metadata": {
+        "position": {
+          "x": 998,
+          "y": 277
+        }
+      }
+    },
+    {
+      "id": "fa3c1cb5-6b9f-4abb-97c2-82320d2cbcec",
+      "type": "Loop",
+      "branches": [
+        {
+          "condition": "Looping",
+          "transition": "b33a31c9-db54-4d33-8a97-89fdfc3dd56b"
+        },
+        {
+          "condition": "Complete",
+          "transition": "ce2b530e-485f-4054-b34b-ef4286c66ab2"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "LoopCount",
+          "value": "3"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 533,
+          "y": 247
+        },
+        "useDynamic": false
+      }
+    },
+    {
+      "id": "428e79ce-7ac7-4eef-9fd0-4be6b5b7eb81",
+      "type": "Disconnect",
+      "branches": [],
+      "parameters": [],
+      "metadata": {
+        "position": {
+          "x": 788,
+          "y": 540
+        }
+      }
+    },
+    {
+      "id": "9bf1dd7f-549a-4ead-ae9a-6f099739a1fd",
+      "type": "GetUserInput",
+      "branches": [
+        {
+          "condition": "Evaluate",
+          "conditionType": "Equals",
+          "conditionValue": "1",
+          "transition": "d74f1649-8844-48cf-ba99-aa7a7e8ffa1f"
+        },
+        {
+          "condition": "Timeout",
+          "transition": "428e79ce-7ac7-4eef-9fd0-4be6b5b7eb81"
+        },
+        {
+          "condition": "NoMatch",
+          "transition": "428e79ce-7ac7-4eef-9fd0-4be6b5b7eb81"
+        },
+        {
+          "condition": "Error",
+          "transition": "428e79ce-7ac7-4eef-9fd0-4be6b5b7eb81"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Text",
+          "value": "Thank you for using Voice Foundry vanity number generator. To hear the numbers again press 1, or hang up now.",
+          "namespace": null
+        },
+        {
+          "name": "TextToSpeechType",
+          "value": "text"
+        },
+        {
+          "name": "Timeout",
+          "value": "5"
+        },
+        {
+          "name": "MaxDigits",
+          "value": "1"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 556,
+          "y": 528
+        },
+        "conditionMetadata": [
+          {
+            "id": "07ec06d1-0a50-4b41-9d83-af2ac6f7f687",
+            "value": "1"
+          }
+        ],
+        "useDynamic": false,
+        "useLexBotDropdown": true,
+        "useDynamicLexBotArn": false,
+        "lexV2BotName": null
+      },
+      "target": "Digits"
+    },
+    {
+      "id": "d74f1649-8844-48cf-ba99-aa7a7e8ffa1f",
+      "type": "PlayPrompt",
+      "branches": [
+        {
+          "condition": "Success",
+          "transition": "9bf1dd7f-549a-4ead-ae9a-6f099739a1fd"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Text",
+          "value": "$.External.ResponseMessage",
+          "namespace": null
+        },
+        {
+          "name": "TextToSpeechType",
+          "value": "ssml"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 289,
+          "y": 542
+        },
+        "useDynamic": false
+      }
+    },
+    {
+      "id": "ce2b530e-485f-4054-b34b-ef4286c66ab2",
+      "type": "PlayPrompt",
+      "branches": [
+        {
+          "condition": "Success",
+          "transition": "ba155e0d-1fef-40c7-ab3b-a1a0120b72c2"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Text",
+          "value": "Sorry, there was a problem processing your request. Goodbye.",
+          "namespace": null
+        },
+        {
+          "name": "TextToSpeechType",
+          "value": "text"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 767,
+          "y": 247
+        },
+        "useDynamic": false
+      }
+    },
+    {
+      "id": "b33a31c9-db54-4d33-8a97-89fdfc3dd56b",
+      "type": "GetUserInput",
+      "branches": [
+        {
+          "condition": "Evaluate",
+          "conditionType": "Equals",
+          "conditionValue": "1",
+          "transition": "db190942-38da-4642-b577-87417b545068"
+        },
+        {
+          "condition": "Timeout",
+          "transition": "f2a221d2-091e-40ec-ac68-9da5215212d9"
+        },
+        {
+          "condition": "NoMatch",
+          "transition": "f2a221d2-091e-40ec-ac68-9da5215212d9"
+        },
+        {
+          "condition": "Error",
+          "transition": "f2a221d2-091e-40ec-ac68-9da5215212d9"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Text",
+          "value": "To generate vanity numbers for this phone number, press 1 now.",
+          "namespace": null
+        },
+        {
+          "name": "TextToSpeechType",
+          "value": "text"
+        },
+        {
+          "name": "Timeout",
+          "value": "5"
+        },
+        {
+          "name": "MaxDigits",
+          "value": "1"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 53,
+          "y": 201
+        },
+        "conditionMetadata": [
+          {
+            "id": "cca29b53-dcde-43da-910c-ef29de0a6dcf",
+            "value": "1"
+          }
+        ],
+        "useDynamic": false,
+        "useLexBotDropdown": true,
+        "useDynamicLexBotArn": false,
+        "lexV2BotName": null
+      },
+      "target": "Digits"
+    },
+    {
+      "id": "db190942-38da-4642-b577-87417b545068",
+      "type": "InvokeExternalResource",
+      "branches": [
+        {
+          "condition": "Success",
+          "transition": "d74f1649-8844-48cf-ba99-aa7a7e8ffa1f"
+        },
+        {
+          "condition": "Error",
+          "transition": "ce2b530e-485f-4054-b34b-ef4286c66ab2"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "FunctionArn",
+          "value": "arn:aws:lambda:us-west-2:798423325714:function:connectCallVanityNumbers",
+          "namespace": null
+        },
+        {
+          "name": "TimeLimit",
+          "value": "5"
+        }
+      ],
+      "metadata": {
+        "position": {
+          "x": 59,
+          "y": 543
+        },
+        "dynamicMetadata": {},
+        "useDynamic": false
+      },
+      "target": "Lambda"
+    }
+  ],
+  "version": "1",
+  "start": "a1a88150-cc73-40c8-aa2c-62064b397f55",
+  "metadata": {
+    "entryPointPosition": {
+      "x": 15,
+      "y": 33
+    },
+    "snapToGrid": false,
+    "name": "Vanity Number Flow",
+    "description": null,
+    "type": "contactFlow",
+    "status": "published",
+    "hash": "ba0c01f3993af45bd7f5fb1aa66a1224b860e594879489ebad9f00a5ac673fb0"
+  },
+  "type": "contactFlow"
+}
