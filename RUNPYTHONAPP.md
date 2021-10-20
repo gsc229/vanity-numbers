@@ -58,7 +58,16 @@ There are a number of tests you can run inthe pipenv shell:
 $ python time_test.py
 ```
 ```
-$ python time_test.py
+$ python test_find_vanity_numbers.py
+```
+```
+$ python test_get_response_message.py
+```
+```
+$ python test_validate_phone.py
+```
+```
+$ python test_word_groups.py
 ```
 
 ## Approach
