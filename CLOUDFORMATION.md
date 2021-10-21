@@ -37,7 +37,7 @@ From the [CloudFormation service page](https://us-west-2.console.aws.amazon.com/
 
 #### Notes on the Lambda Function:
 
-The CloudFormation is set up to upload the Lambda function code from a zip file in a public S3 bucket. The function is named ```ConnectGetVanityNumbers```. You'll see in the AWS code editor that ```vanity-numbers-master`` folder (this entire repo) was placed in the root folder. You'll need to move the ```vanitynumbers`` folder and ```lambda_function``` into the root folder (ConnectGetVanityNumbers). Once they are in the root folder you can delete vanity-numbers-master folder.
+The CloudFormation is set up to upload the Lambda function code from a zip file in a public S3 bucket. The function is named ```ConnectGetVanityNumbers```. You'll see in the AWS code editor that ```vanity-numbers-master`` folder (this entire repo) was placed in the root folder. You'll need to move the ```vanitynumbers``` folder and ```lambda_function``` into the root folder (ConnectGetVanityNumbers). Once they are in the root folder you can delete vanity-numbers-master folder.
 
 
 
