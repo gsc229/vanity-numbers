@@ -11,7 +11,7 @@
 
 #### Problems I ran into:
 
-I was able to create a CloudFormation all services successfuly, except for the Connect service. It kept failing on deployment and I found documentation on Connect CloudFormation properties and attributes to be quite sparse. 
+I was able to create a CloudFormation for all services successfuly, except for the Connect service. It kept failing on deployment and I found documentation on Connect CloudFormation properties and attributes to be quite sparse. 
 
 For this reason, I've included two CloudFormation templates. One fully working one, and one buggy one. You can find them in the root folder: 
 
