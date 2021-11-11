@@ -29,8 +29,8 @@ The second one will deploy everything you need to pipe information into the Conn
 
 From the [CloudFormation service page](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/):
 1. click Create Stack 
-2. select Template is Ready and Upload Template File radios and click upload. Upload one of the above templates (found in the root folder)
-3. click Next
+2. select ``` Template is Ready ``` and ``` Upload Template File ``` radios and click ``` upload ```. Upload one of the above templates (found in the root folder)
+3. click ``` Next ```
 4. Name the stack
 5. Configure Options (don't really need to do anything)
 6. Review, Acknowledge click Submit
