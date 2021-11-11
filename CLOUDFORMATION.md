@@ -19,9 +19,9 @@ For this reason, I've included two CloudFormation templates. One fully working o
 
 
 and
-```
-LambdaDynamoDBCloudFormation
-```
+
+[LambdaDynamoDBCloudFormation](https://github.com/gsc229/vanity-numbers/blob/master/LambdaDynamoDBCloudFormation)
+
 The second one will deploy everything you need to pipe information into the Connect Vanity Number Call Center: Lambada, DynamoDB, Roles, Permissions. You'll just have to set up the Call center itself independently. 
 
 ## Instructions for Uploading
