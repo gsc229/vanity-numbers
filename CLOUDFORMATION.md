@@ -15,9 +15,8 @@ I was able to create a CloudFormation for all services successfuly, except for t
 
 For this reason, I've included two CloudFormation templates. One fully working one, and one buggy one. You can find them in the root folder: 
 
-```
-ConnnectLambdaDynamoDBCloudFormation
-```
+[ConnnectLambdaDynamoDBCloudFormation](https://github.com/gsc229/vanity-numbers/blob/master/ConnectLambdaDynamoDBCloudFormation)
+
 
 and
 ```
